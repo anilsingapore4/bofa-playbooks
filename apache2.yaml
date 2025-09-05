@@ -1,0 +1,19 @@
+
+  tasks:
+
+
+   - name: Run the equivalent of "apt-get update" as a separate step
+     ansible.builtin.apt:
+       update_cache: yes
+
+
+   - name: Install apache httpd  
+     ansible.builtin.apt:
+       name: apache2
+       state: present
+
+
+   - name: Start service apache2, if not started
+     ansible.builtin.service:
+       name: apache2
+       state: started
